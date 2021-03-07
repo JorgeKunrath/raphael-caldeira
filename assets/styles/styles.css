@@ -47,6 +47,7 @@ img {
   --accent-dark: #8f7624;
   --text: #333333;
   --bk: #f7f7f2;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   --radius: 4px;
   --gap: 1rem;
   --vertical-spacing: 4rem;
@@ -136,6 +137,7 @@ h3 {
 
 .hover-link {
   position: relative;
+  display: block;
 }
 
 .hover-link::before, .hover-link::after {
@@ -363,6 +365,8 @@ footer .icons svg {
 
 .case img {
   border-radius: var(--radius);
+  -webkit-box-shadow: var(--shadow);
+          box-shadow: var(--shadow);
 }
 
 @media (min-width: 768px) {
@@ -399,11 +403,6 @@ footer .icons svg {
 .roteiros .card,
 .artigos .card {
   margin-bottom: 1rem;
-}
-
-.roteiros .card a,
-.artigos .card a {
-  display: block;
 }
 
 .roteiros .card img,

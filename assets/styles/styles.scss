@@ -50,6 +50,8 @@ img {
   --text: #333333;
   --bk: #f7f7f2;
 
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
   --radius: 4px;
   --gap: 1rem;
   --vertical-spacing: 4rem;
@@ -138,6 +140,7 @@ h3 {
 
 .hover-link {
   position: relative;
+  display: block;
 
   &::before,
   &::after {
@@ -352,6 +355,7 @@ footer {
 
   img {
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
   }
 
   @media (min-width: 768px) {
@@ -382,10 +386,6 @@ footer {
 
   .card {
     margin-bottom: 1rem;
-
-    a {
-      display: block;
-    }
 
     img {
       border-radius: var(--radius);
