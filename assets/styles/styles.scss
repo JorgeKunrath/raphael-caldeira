@@ -52,9 +52,11 @@ img {
 
   --radius: 4px;
   --gap: 1rem;
+  --vertical-spacing: 4rem;
 
   @media (min-width: 768px) {
     --gap: 1.5rem;
+    --vertical-spacing: 6rem;
   }
 }
 
@@ -123,6 +125,72 @@ h3 {
   outline-color: var(--accent-dark);
 }
 
+.copyright {
+  text-align: center;
+  margin: 0.5rem auto;
+  font-size: 0.7rem;
+  span,
+  a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+}
+
+.hover-link {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: var(--radius);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:focus,
+  &:hover {
+    &::before,
+    &::after {
+      opacity: 0.5;
+    }
+  }
+
+  &.hover-internal,
+  &.hover-instagram,
+  &.hover-external,
+  &.hover-image {
+    &::after {
+      background-size: 20%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &.hover-internal {
+  }
+
+  &.hover-instagram {
+    &::after {
+      background-image: url("../icons/instagram.svg");
+    }
+  }
+
+  &.hover-external {
+    &::after {
+      background-image: url("../icons/link.svg");
+    }
+  }
+
+  &.hover-image {
+  }
+}
+
 // ----------------
 // Header
 header {
@@ -139,7 +207,66 @@ header {
 // ----------------
 // Footer
 footer {
-  min-height: 3rem;
+  margin: calc(var(--vertical-spacing) * 1.5) auto;
+
+  .inner {
+    display: grid;
+    grid-gap: var(--gap);
+    max-width: 900px;
+  }
+
+  .content {
+    display: grid;
+    grid-gap: 0.5rem;
+  }
+
+  a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    &:focus,
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .icons {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+    grid-gap: 0.5rem;
+
+    a {
+      margin: 0;
+      line-height: 1;
+      padding: 0;
+    }
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: var(--accent);
+    }
+  }
+
+  @media (max-width: 768px) {
+    img {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .inner {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+
+    img {
+      max-width: 250px;
+      border-radius: 50%;
+      justify-self: center;
+    }
+  }
 }
 
 // ----------------
@@ -200,7 +327,7 @@ footer {
 // ----------------
 // Case Diego
 .case {
-  margin-bottom: 4rem;
+  margin-bottom: var(--vertical-spacing);
 
   .inner {
     display: flex;
@@ -239,8 +366,9 @@ footer {
 
 // ----------------
 // Roteiros
-.roteiros {
-  margin-bottom: 4rem;
+.roteiros,
+.artigos {
+  margin-bottom: var(--vertical-spacing);
 
   h2 {
     margin-bottom: 1rem;
@@ -253,6 +381,12 @@ footer {
   }
 
   .card {
+    margin-bottom: 1rem;
+
+    a {
+      display: block;
+    }
+
     img {
       border-radius: var(--radius);
     }
@@ -260,9 +394,8 @@ footer {
     p {
       text-align: right;
       line-height: 1.2;
-      margin-top: 0.5em;
+      margin-top: var(--gap);
       margin-left: 20%;
-      font-size: 0.9em;
     }
   }
 
@@ -270,8 +403,8 @@ footer {
     .card-list {
       grid-template-columns: repeat(3, 1fr);
     }
-    p {
-      margin-top: 1.5em;
+    .card {
+      margin-bottom: 0;
     }
   }
 }
@@ -279,7 +412,7 @@ footer {
 // ----------------
 // Social Media
 .social-media {
-  margin-bottom: 4rem;
+  margin-bottom: var(--vertical-spacing);
 
   h2 {
     margin-bottom: 1rem;
@@ -325,7 +458,7 @@ footer {
 // ----------------
 // Landin Pages
 .landing-pages {
-  margin-bottom: 4rem;
+  margin-bottom: var(--vertical-spacing);
 
   h2 {
     margin-bottom: 1rem;

@@ -49,11 +49,13 @@ img {
   --bk: #f7f7f2;
   --radius: 4px;
   --gap: 1rem;
+  --vertical-spacing: 4rem;
 }
 
 @media (min-width: 768px) {
   :root {
     --gap: 1.5rem;
+    --vertical-spacing: 6rem;
   }
 }
 
@@ -120,6 +122,54 @@ h3 {
   outline-color: var(--accent-dark);
 }
 
+.copyright {
+  text-align: center;
+  margin: 0.5rem auto;
+  font-size: 0.7rem;
+}
+
+.copyright span,
+.copyright a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.hover-link {
+  position: relative;
+}
+
+.hover-link::before, .hover-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+.hover-link:focus::before, .hover-link:focus::after, .hover-link:hover::before, .hover-link:hover::after {
+  opacity: 0.5;
+}
+
+.hover-link.hover-internal::after, .hover-link.hover-instagram::after, .hover-link.hover-external::after, .hover-link.hover-image::after {
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.hover-link.hover-instagram::after {
+  background-image: url("../icons/instagram.svg");
+}
+
+.hover-link.hover-external::after {
+  background-image: url("../icons/link.svg");
+}
+
 header .inner {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -137,7 +187,74 @@ header img {
 }
 
 footer {
-  min-height: 3rem;
+  margin: calc(var(--vertical-spacing) * 1.5) auto;
+}
+
+footer .inner {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: var(--gap);
+  max-width: 900px;
+}
+
+footer .content {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0.5rem;
+}
+
+footer a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+footer a:focus, footer a:hover {
+  opacity: 0.8;
+}
+
+footer .icons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (min-content)[3];
+      grid-template-columns: repeat(3, -webkit-min-content);
+      grid-template-columns: repeat(3, min-content);
+  grid-gap: 0.5rem;
+}
+
+footer .icons a {
+  margin: 0;
+  line-height: 1;
+  padding: 0;
+}
+
+footer .icons svg {
+  width: 2rem;
+  height: 2rem;
+  fill: var(--accent);
+}
+
+@media (max-width: 768px) {
+  footer img {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .inner {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  footer img {
+    max-width: 250px;
+    border-radius: 50%;
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
 }
 
 .presentation {
@@ -207,7 +324,7 @@ footer {
 }
 
 .case {
-  margin-bottom: 4rem;
+  margin-bottom: var(--vertical-spacing);
 }
 
 .case .inner {
@@ -260,15 +377,18 @@ footer {
   }
 }
 
-.roteiros {
-  margin-bottom: 4rem;
+.roteiros,
+.artigos {
+  margin-bottom: var(--vertical-spacing);
 }
 
-.roteiros h2 {
+.roteiros h2,
+.artigos h2 {
   margin-bottom: 1rem;
 }
 
-.roteiros .card-list {
+.roteiros .card-list,
+.artigos .card-list {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -276,30 +396,43 @@ footer {
   grid-gap: var(--gap);
 }
 
-.roteiros .card img {
+.roteiros .card,
+.artigos .card {
+  margin-bottom: 1rem;
+}
+
+.roteiros .card a,
+.artigos .card a {
+  display: block;
+}
+
+.roteiros .card img,
+.artigos .card img {
   border-radius: var(--radius);
 }
 
-.roteiros .card p {
+.roteiros .card p,
+.artigos .card p {
   text-align: right;
   line-height: 1.2;
-  margin-top: 0.5em;
+  margin-top: var(--gap);
   margin-left: 20%;
-  font-size: 0.9em;
 }
 
 @media (min-width: 768px) {
-  .roteiros .card-list {
+  .roteiros .card-list,
+  .artigos .card-list {
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
   }
-  .roteiros p {
-    margin-top: 1.5em;
+  .roteiros .card,
+  .artigos .card {
+    margin-bottom: 0;
   }
 }
 
 .social-media {
-  margin-bottom: 4rem;
+  margin-bottom: var(--vertical-spacing);
 }
 
 .social-media h2 {
@@ -349,7 +482,7 @@ footer {
 }
 
 .landing-pages {
-  margin-bottom: 4rem;
+  margin-bottom: var(--vertical-spacing);
 }
 
 .landing-pages h2 {
