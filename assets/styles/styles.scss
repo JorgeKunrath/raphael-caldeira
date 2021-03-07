@@ -93,7 +93,9 @@ h3 {
 .cta {
   display: inline-block;
   text-align: center;
-  padding: 0.35em 0.5em 0.25em;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  padding: 0.5em 0.75em 0.35em;
   background-color: var(--accent);
   text-decoration: none;
   color: white;
@@ -370,8 +372,7 @@ footer {
 
 // ----------------
 // Roteiros
-.roteiros,
-.artigos {
+.roteiros {
   margin-bottom: var(--vertical-spacing);
 
   h2 {
@@ -385,26 +386,36 @@ footer {
   }
 
   .card {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
 
-    img {
-      border-radius: var(--radius);
+    > * {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .audio-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    > * {
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      max-width: 250px;
     }
 
-    p {
-      text-align: right;
-      line-height: 1.2;
-      margin-top: var(--gap);
-      margin-left: 20%;
+    audio {
+      border-radius: 200px;
+      // box-shadow: var(--shadow);
+      border: 1px solid var(--accent);
     }
   }
 
   @media (min-width: 768px) {
     .card-list {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    .card {
-      margin-bottom: 0;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
@@ -483,6 +494,46 @@ footer {
   @media (min-width: 768px) {
     .grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// ----------------
+// Artigos
+.artigos {
+  margin-bottom: var(--vertical-spacing);
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: var(--gap);
+  }
+
+  .card {
+    margin-bottom: 1rem;
+
+    img {
+      border-radius: var(--radius);
+    }
+
+    p {
+      text-align: right;
+      line-height: 1.2;
+      margin-top: var(--gap);
+      margin-left: 20%;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .card-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .card {
+      margin-bottom: 0;
     }
   }
 }

@@ -87,7 +87,9 @@ h3 {
 .cta {
   display: inline-block;
   text-align: center;
-  padding: 0.35em 0.5em 0.25em;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  padding: 0.5em 0.75em 0.35em;
   background-color: var(--accent);
   text-decoration: none;
   color: white;
@@ -381,18 +383,15 @@ footer .icons svg {
   }
 }
 
-.roteiros,
-.artigos {
+.roteiros {
   margin-bottom: var(--vertical-spacing);
 }
 
-.roteiros h2,
-.artigos h2 {
+.roteiros h2 {
   margin-bottom: 1rem;
 }
 
-.roteiros .card-list,
-.artigos .card-list {
+.roteiros .card-list {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
@@ -400,33 +399,52 @@ footer .icons svg {
   grid-gap: var(--gap);
 }
 
-.roteiros .card,
-.artigos .card {
+.roteiros .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.roteiros .card > * {
+  margin-bottom: 0.5rem;
+}
+
+.roteiros .audio-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.roteiros .audio-block > * {
+  margin-right: 1rem;
   margin-bottom: 1rem;
+  max-width: 250px;
 }
 
-.roteiros .card img,
-.artigos .card img {
-  border-radius: var(--radius);
-}
-
-.roteiros .card p,
-.artigos .card p {
-  text-align: right;
-  line-height: 1.2;
-  margin-top: var(--gap);
-  margin-left: 20%;
+.roteiros .audio-block audio {
+  border-radius: 200px;
+  border: 1px solid var(--accent);
 }
 
 @media (min-width: 768px) {
-  .roteiros .card-list,
-  .artigos .card-list {
-    -ms-grid-columns: (1fr)[3];
-        grid-template-columns: repeat(3, 1fr);
-  }
-  .roteiros .card,
-  .artigos .card {
-    margin-bottom: 0;
+  .roteiros .card-list {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -510,6 +528,47 @@ footer .icons svg {
   .landing-pages .grid {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.artigos {
+  margin-bottom: var(--vertical-spacing);
+}
+
+.artigos h2 {
+  margin-bottom: 1rem;
+}
+
+.artigos .card-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: var(--gap);
+}
+
+.artigos .card {
+  margin-bottom: 1rem;
+}
+
+.artigos .card img {
+  border-radius: var(--radius);
+}
+
+.artigos .card p {
+  text-align: right;
+  line-height: 1.2;
+  margin-top: var(--gap);
+  margin-left: 20%;
+}
+
+@media (min-width: 768px) {
+  .artigos .card-list {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  .artigos .card {
+    margin-bottom: 0;
   }
 }
 /*# sourceMappingURL=styles.css.map */
