@@ -172,7 +172,7 @@ h3 {
   &.hover-external,
   &.hover-image {
     &::after {
-      background-size: 20%;
+      background-size: 15%;
       background-repeat: no-repeat;
       background-position: center;
     }
@@ -455,6 +455,10 @@ footer {
     grid-gap: var(--gap);
   }
 
+  p {
+    font-style: italic;
+  }
+
   @media (min-width: 768px) {
     .featured {
       grid-template-columns: repeat(2, 1fr);
@@ -482,15 +486,30 @@ footer {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: var(--gap);
     margin-bottom: var(--gap);
+    align-items: stretch;
+  }
+
+  a {
+    position: relative;
+    padding-top: calc((11 / 16) * 100%);
+    height: 0;
+    box-shadow: var(--shadow);
   }
 
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: var(--radius);
+    object-fit: cover;
   }
 
   p {
     text-align: right;
     margin-left: 20%;
+    font-style: italic;
   }
 
   @media (min-width: 768px) {
@@ -517,6 +536,7 @@ footer {
 
   .card {
     margin-bottom: 1rem;
+    align-self: stretch;
 
     img {
       border-radius: var(--radius);
@@ -528,6 +548,17 @@ footer {
       margin-top: var(--gap);
       margin-left: 20%;
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.25rem;
+  }
+
+  p {
+    font-style: italic;
+    opacity: 0.5;
   }
 
   @media (min-width: 768px) {
